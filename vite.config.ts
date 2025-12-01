@@ -5,10 +5,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      base: '/reflex-pro/',  // 这一行必须是return对象的第一个属性
       server: {
         port: 3000,
         host: '0.0.0.0',
       },
+      // 其他配置...
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
